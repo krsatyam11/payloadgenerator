@@ -7,7 +7,7 @@
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 
-> 🧪 A minimal hacker-style **Payload Generator Dashboard** for cybersecurity learners & penetration testers.
+> 🧪 A minimal dark themed **Payload Generator Dashboard** for cybersecurity learners & penetration testers.
 > Generate random payloads for **XSS, SQLi, Command Injection, and SSTI** with a sleek modern UI.
 
 ---
