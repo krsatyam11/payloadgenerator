@@ -2,10 +2,10 @@ import { siteConfig, footerLinks } from "../config";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-background/50 backdrop-blur-sm py-8 mt-auto">
+    <footer className="border-t border-white/5 bg-black/50 backdrop-blur-sm py-6 mt-auto">
       <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
-        <div className="text-sm text-muted-foreground font-mono">
-          © {siteConfig.year} {siteConfig.author}. All rights reserved.
+        <div className="text-xs text-muted-foreground font-mono">
+          <span className="text-cyan-500">root@payload-ui</span>:~$ ./copyright --year {siteConfig.year} --author "{siteConfig.author}"
         </div>
         
         <div className="flex items-center gap-6">
@@ -17,10 +17,10 @@ export default function Footer() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-cyan-400 transition-colors transform hover:scale-110"
                 aria-label={link.name}
               >
-                <Icon className="h-5 w-5" />
+                <Icon className="h-4 w-4" />
               </a>
             );
           })}

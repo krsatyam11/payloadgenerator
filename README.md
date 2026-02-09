@@ -1,4 +1,4 @@
-# ⚔️ Payload Generator UI Pro
+# ⚡ PayloadGen (v2.5.0)
 
 ![React](https://img.shields.io/badge/React-18-blue?logo=react)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
@@ -7,8 +7,8 @@
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 
-> 🧪 A minimal dark themed **Payload Generator Dashboard** for cybersecurity learners & penetration testers.
-> Generate random payloads for **XSS, SQLi, Command Injection, and SSTI** with a sleek modern UI.
+> 🧪 **A high-performance Offensive Security Dashboard.**
+> Access a curated database of payloads with technical breakdowns, "Cyber-Hacker" aesthetics, and fuzzer-ready export options.
 
 ---
 
@@ -19,88 +19,104 @@
 
 ---
 
-## 🧠 Features
+## 🧠 New Features (v2.5)
 
-* 🔀 Random Payload Generator
-* 🗂️ Category-Based Payloads (XSS, SQLi, CMDi, SSTI)
-* 🔍 Search Payloads by Category
-* 📋 One-Click Copy to Clipboard
-* ⚡ Built with React + TypeScript + Tailwind
-* 🧩 Easily Extendable Payload Dataset
+*   **🎨 Cyber-Professional UI:** A sleek, forced dark-mode interface with glassmorphism, neon accents, and CRT-style grid effects designed for late-night hacking.
+*   **📚 Expanded Database:** Now supports **12+ Categories** including SSRF, Prototype Pollution, LDAP Injection, and Cloud Metadata attacks.
+*   **🔬 Technical Analysis:** Every payload comes with a "Technical Analysis" breakdown explaining *how* and *why* it works (bypass techniques, context, etc.).
+*   **⚡ Fuzzer-Ready Exports:**
+    *   **TXT Export:** Generates a clean, newline-separated wordlist perfect for **Burp Suite Intruder**, **FFUF**, or **OWASP ZAP**.
+    *   **JSON Export:** Full database dump for integration with custom scanners.
+*   **🔍 Advanced Search:** Instant filtering by payload string, description, or tags (e.g., `#bypass`, `#aws`, `#auth`).
 
 ---
 
 ## 📂 Project Structure
 
 ```
-payload-ui/
+payloadgenerator/
 │
 ├── src/
-│   ├── PayloadDashboard.tsx
-│   ├── Payloads.ts
-│   ├── config.ts
+│   ├── components/
+│   │   └── Footer.tsx       # Cyber-styled footer
+│   ├── PayloadDashboard.tsx # Main UI Logic & Layout
+│   ├── Payloads.ts          # Expanded Database (The "Brain")
+│   ├── config.ts            # Author Config
 │   ├── App.tsx
 │   ├── main.tsx
-│   ├── index.css
-│   └── components/
-│       └── Footer.tsx
+│   └── index.css            # Tailwind & Custom Cyber Effects
 │
 ├── index.html
 ├── vite.config.ts
 ├── tailwind.config.js
-├── package.json
-└── README.md
+└── package.json
 ```
 
 ---
 
 ## 🛠️ Tech Stack
 
-* ⚛️ React + TypeScript
-* ⚡ Vite
-* 🎨 TailwindCSS
-* 🧩 Lucide Icons
-* 📋 Clipboard API
+*   **Core:** React 18 + TypeScript
+*   **Build:** Vite
+*   **Styling:** TailwindCSS + Custom CSS Variables (Neon/Glassmorphism)
+*   **Icons:** Lucide React
+*   **Utils:** Blob API (for exports), Clipboard API
 
 ---
 
 ## ⚙️ Installation & Run Locally
 
 ```bash
+# 1. Clone the repository
 git clone https://github.com/krsatyam11/payloadgenerator.git
+
+# 2. Navigate to directory
 cd payloadgenerator
+
+# 3. Install dependencies
 npm install
+
+# 4. Run the development server
 npm run dev
 ```
 
-Open in browser:
-
-```
-http://localhost:5173
-```
+Open in browser: `http://localhost:5173`
 
 ---
 
-## 📌 Payload Categories
+## 📌 Supported Attack Vectors
 
-| Category | Description                             |
-| -------- | --------------------------------------- |
-| 🧨 XSS   | Cross-Site Scripting Payloads           |
-| 🗄️ SQLi | SQL Injection Payloads                  |
-| 🖥️ CMDi | Command Injection Payloads              |
-| 🧩 SSTI  | Server-Side Template Injection Payloads |
+| Category | Description |
+| :--- | :--- |
+| **🧨 XSS** | Cross-Site Scripting (Reflected, SVG, Polyglots) |
+| **💉 SQLi** | SQL Injection (Auth Bypass, Blind, Time-based) |
+| **🖥️ CMDi** | Command Injection (Unix/Win chaining, OOB) |
+| **🧩 SSTI** | Server-Side Template Injection (Jinja2, Java, Ruby) |
+| **☁️ SSRF** | Server-Side Request Forgery (Cloud Metadata, AWS) |
+| **📁 LFI** | Local File Inclusion (Path Traversal, Wrappers) |
+| **🌐 RFI** | Remote File Inclusion (SMB, HTTP) |
+| **📄 XXE** | XML External Entity (LFD, SSRF via XXE) |
+| **🎭 CSRF** | Cross-Site Request Forgery (Auto-submit forms) |
+| **🗄️ NoSQLi** | NoSQL Injection (MongoDB, Regex extraction) |
+| **🔄 Redirect** | Open Redirects (Filter bypasses) |
+| **🧬 Proto** | JavaScript Prototype Pollution (JSON, Gadgets) |
 
 ---
 
-## 🧩 Add Custom Payloads
+## 💾 How to Use Exports
 
-Edit the payload dataset here:
+### 1. Fuzzer Wordlist (.txt)
+Click the **TXT** button in the header.
+*   **Output:** A clean text file with one payload per line.
+*   **Use Case:** Load directly into **Burp Suite Intruder** (Payloads tab) or use with **FFUF**:
+    ```bash
+    ffuf -w payloads.txt -u https://target.com/vuln?param=FUZZ
+    ```
 
-```
-src/Payloads.ts
-```
-
-Add new payload strings inside category arrays.
+### 2. Full Database (.json)
+Click the **JSON** button in the header.
+*   **Output:** A structured JSON file containing payload, description, and tags.
+*   **Use Case:** Import into custom Python/Go scanners.
 
 ---
 
@@ -126,18 +142,20 @@ Add new payload strings inside category arrays.
 
 ## ⚠️ Disclaimer
 
-> This project is for **educational and ethical security testing only**.
-> Do **NOT** use these payloads on systems without explicit permission.
+> 🛑 **Legal Warning:**
+> This project is designed for **educational purposes, authorized penetration testing, and CTF challenges only**.
+>
+> The author (**Kr Satyam**) is not responsible for any illegal use of these payloads. Never attack a system without explicit written permission from the owner.
 
 ---
 
 ## ⭐ Support
 
-If you like this project:
+If you find this tool useful for your bug bounties or pentests:
 
-* ⭐ Star the repo
-* 🍴 Fork it
-* 🧠 Contribute improvements
+*   ⭐ **Star the repo**
+*   🍴 **Fork it**
+*   🧠 **Contribute new payloads**
 
 ---
 

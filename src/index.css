@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -31,30 +29,29 @@
 
 @layer base {
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', sans-serif;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-medium tracking-tight;
-  }
-  code, textarea {
-    font-family: 'JetBrains Mono', monospace;
+    @apply bg-background text-foreground font-sans antialiased overflow-x-hidden;
   }
 }
 
-/* 🔥 BUTTON INTERACTION SYSTEM */
-@layer components {
-  .btn {
-    @apply px-2 py-1 rounded font-medium transition-all duration-150 
-           hover:scale-[1.03] active:scale-[0.96] 
-           focus:outline-none focus:ring-2 focus:ring-white/30;
+@layer utilities {
+  .cyber-grid {
+    background-size: 50px 50px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  }
+  
+  .text-glow-cyan {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
   }
 
-  .btn-dark {
-    @apply bg-zinc-800 hover:bg-zinc-700 text-white;
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
-
-  .btn-light {
-    @apply bg-white text-black hover:bg-zinc-200;
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
